@@ -1,0 +1,36 @@
+applications:
+  test-clamav:
+    source:
+      root: "/"
+    stack:
+      - "clamav"
+    build:
+      flavor: none
+
+    mounts:
+      'folder2scan':
+        source: storage
+        source_path: folder2scan
+      'var':
+        source: storage
+        source_path: var
+
+    hooks:
+      build: |
+        set -eux        
+        # Add build steps here.
+        # echo 'I am a build step'
+
+      deploy: |
+        set -eux
+        # echo 'Put your deploy command here'
+
+    # Scheduled tasks for the app.
+    # More information: https://docs.upsun.com/create-apps/app-reference/single-runtime-image.html#crons
+    # crons:
+
+services: null
+routes:
+  # "https://{default}/":
+  #   type: upstream
+  #   upstream: "test-clamav:http"
