@@ -9,23 +9,25 @@ applications:
     container_profile: BALANCED
 
     mounts:
+      # Mount of data to scan
       'folder2scan':
         source: storage
         source_path: folder2scan
+      # Mount of configuration/database to store 
       'var':
         source: storage
         source_path: var
 
     hooks:
       build: |
-        set -eux
+        set -eu
         ./scripts/systemd_install.sh
       deploy: |
-        set -eux
+        set -eu
         ./scripts/clam_install.sh
-        echo "Create fake file for test (can be remove !)"
         ./scripts/clam_populate.sh
 
+    # Trigger by CRON (case one-time)
     crons:
       update-db:
         spec: '0 0 * * *'
@@ -39,6 +41,7 @@ applications:
           start: ./scripts/clam_scan.sh
           stop: pkill clamscan
     
+    # Service conatiner listenning on TCP port (case service)
     workers:
       service_clamav:
         commands:
@@ -47,6 +50,7 @@ applications:
             ./scripts/clam_update-db.sh
             ./scripts/systemd_init.sh
 
+    # Trig event for one-time/service
     operations:
       trigg_clamav:
         role: viewer

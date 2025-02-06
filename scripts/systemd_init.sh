@@ -14,8 +14,8 @@ systemctl --user enable clamav.service
 echo "Starting with user"
 systemctl --user start clamav.service
 
-echo "Show current services"
-systemctl --user
+# echo "Show current services"
+# systemctl --user
 
 echo "Show current services"
 systemctl --user status clamav.service

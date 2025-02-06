@@ -7,7 +7,7 @@ mkdir -p \
     "${PLATFORM_APP_DIR}/var/lib" \
     "${PLATFORM_APP_DIR}/var/etc"
 
-echo "Generate client config..."
+echo "Generate client/server config..."
 cp "${PLATFORM_APP_DIR}/etc/clamd.conf" "${PLATFORM_APP_DIR}/var/etc/"
 IP=$(ifconfig eth0 | grep "inet " | awk -F'[: ]+' '{ print $3 }')
 sed -i "s/#TCPAddr localhost/TCPAddr ${IP}/g" "${PLATFORM_APP_DIR}/var/etc/clamd.conf"
