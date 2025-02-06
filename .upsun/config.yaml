@@ -23,6 +23,8 @@ applications:
       deploy: |
         set -eux
         ./scripts/clam_install.sh
+        echo "Create fake file for test (can be remove !)"
+        ./scripts/clam_populate.sh
 
     crons:
       update-db:
@@ -38,12 +40,19 @@ applications:
           stop: pkill clamscan
     
     workers:
-      worker_clamav:
+      service_clamav:
         commands:
           start: |
             ./scripts/clam_install.sh
             ./scripts/clam_update-db.sh
             ./scripts/systemd_init.sh
+
+    operations:
+      trigg_clamav:
+        role: viewer
+        commands:
+          start: |
+            ./scripts/clam_scan-clt.sh            
 
 services: null
 routes:
