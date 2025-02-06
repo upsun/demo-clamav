@@ -18,16 +18,23 @@ applications:
     hooks:
       build: |
         set -eux        
-        # Add build steps here.
-        # echo 'I am a build step'
 
       deploy: |
         set -eux
-        # echo 'Put your deploy command here'
+        ./scripts/clam_install.sh
 
-    # Scheduled tasks for the app.
-    # More information: https://docs.upsun.com/create-apps/app-reference/single-runtime-image.html#crons
-    # crons:
+    crons:
+      update-db:
+        spec: '0 0 * * *'
+        commands:
+          start: ./scripts/clam_update-db.sh
+          stop: pkill freshclam
+
+      scan-files:
+        spec: 'H * * * *'
+        commands:
+          start: ./scripts/clam_scan.sh
+          stop: pkill clamscan
 
 services: null
 routes:

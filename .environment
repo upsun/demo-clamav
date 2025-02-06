@@ -1,0 +1,6 @@
+
+export FOLDER2SCAN="${PLATFORM_APP_DIR}/folder2scan/scan"
+export FOLDER2MOVE="${PLATFORM_APP_DIR}/folder2scan/quarantine"
+
+# Config
+export DATABASE="${PLATFORM_APP_DIR}/var/lib"
