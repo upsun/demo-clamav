@@ -1,0 +1,16 @@
+[Unit]
+Description=Clamav Service
+After=network.target
+StartLimitIntervalSec=0
+
+[Service]
+Type=simple
+Restart=always
+RestartSec=1
+TimeoutSec=30s
+ExecStart=/app/.local/bin/clamd --config-file="/app/var/etc/clamd.conf" --foreground=true
+# PID /run/clamav/clam.pid
+ExecReload=/bin/kill -USR2 $MAINPID
+
+[Install]
+# WantedBy=default.target

@@ -1,11 +1,12 @@
 applications:
-  test-clamav:
+  in-app_clamav:
     source:
       root: "/"
     stack:
       - "clamav"
     build:
       flavor: none
+    container_profile: BALANCED
 
     mounts:
       'folder2scan':
@@ -17,8 +18,8 @@ applications:
 
     hooks:
       build: |
-        set -eux        
-
+        set -eux
+        ./scripts/systemd_install.sh
       deploy: |
         set -eux
         ./scripts/clam_install.sh
@@ -35,6 +36,14 @@ applications:
         commands:
           start: ./scripts/clam_scan.sh
           stop: pkill clamscan
+    
+    workers:
+      worker_clamav:
+        commands:
+          start: |
+            ./scripts/clam_install.sh
+            ./scripts/clam_update-db.sh
+            ./scripts/systemd_init.sh
 
 services: null
 routes:

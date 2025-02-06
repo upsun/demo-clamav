@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# -*- coding: utf-8 -*-
 
 echo "Prepare folder for clamav..."
 mkdir -p \
