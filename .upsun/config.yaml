@@ -4,8 +4,8 @@ applications:
       root: "/"
     stack:
       - "clamav"
-    build:
-      flavor: none
+
+    # Need more RAM than CPU
     container_profile: BALANCED
 
     mounts:

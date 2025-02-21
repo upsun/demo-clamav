@@ -45,5 +45,9 @@ application:
 
 ### Services
 
-
+You can use :
+```
+./scripts/clam_update-db.sh   # Use to update virus database.
+./scripts/clam_scan-clt.sh    # Scan folder and move into quarantine.
+```
 
