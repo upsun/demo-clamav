@@ -1,0 +1,5 @@
+{
+    "require": {
+        "appwrite/php-clamav": "^2.0"
+    }
+}

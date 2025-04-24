@@ -51,9 +51,29 @@ applications:
         commands:
           start: |
             ./scripts/clam_scan-clt.sh            
+  app:
+    source:
+      root: "/app"
+    type: php:8.3
+    container_profile: BALANCED
+    web:
+      locations:
+        "/":
+          root: "public"
+          expires: 1h
+          passthru: "/index.php"
+    mounts:
+      "var": { source: storage, source_path: var, service: clamav }
+      "data": { source: storage, source_path: data, service: clamav }
+    hooks:
+      build: |
+        set -x -e
+        composer install        
+    relationships:
+      clamav:
+        service: "clamav"
+        endpoint: "http"
 
-services: null
 routes:
-  # "https://{default}/":
-  #   type: upstream
-  #   upstream: "test-clamav:http"
+  "https://{all}/": { type: upstream, upstream: "app:http", primary: true}
+  "http://{all}/": { type: redirect, to: "https://{all}/" }

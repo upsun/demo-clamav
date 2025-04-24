@@ -5,6 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="16c22634-f977-4a45-b8ba-a20164d257d7" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/app/public/index.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.upsun/config.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/.upsun/config.yaml" afterDir="false" />
     </list>
@@ -57,7 +58,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1745482233694</updated>
-      <workItem from="1745482234922" duration="11963000" />
+      <workItem from="1745482234922" duration="12072000" />
     </task>
     <servers />
   </component>
