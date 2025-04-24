@@ -10,6 +10,4 @@ RestartSec=1
 TimeoutSec=30s
 ExecStart=/app/.local/bin/clamd --config-file="/app/var/etc/clamd.conf" --foreground=true
 ExecReload=/bin/kill -USR2 $MAINPID
-
-[Install]
-# WantedBy=default.target
+ExecStartPre=/bin/mkdir -p /var/run/clamav

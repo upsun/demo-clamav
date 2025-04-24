@@ -1,7 +1,7 @@
 applications:
   in-app_clamav:
     source:
-      root: "/"
+      root: "/clamav"
     stack:
       - "clamav"
 
@@ -9,14 +9,8 @@ applications:
     container_profile: BALANCED
 
     mounts:
-      # Mount of data to scan
-      'folder2scan':
-        source: storage
-        source_path: folder2scan
-      # Mount of configuration/database to store 
-      'var':
-        source: storage
-        source_path: var
+      "data": { source: storage, source_path: data } # Mount of data to scan.
+      "var": { source: storage, source_path: var } # Mount of configuration/database for ClamAV.
 
     hooks:
       build: |
@@ -25,7 +19,7 @@ applications:
       deploy: |
         set -eu
         ./scripts/clam_install.sh
-        ./scripts/clam_populate.sh
+        ./scripts/systemd_init.sh        
 
     # Trigger by CRON (case one-time)
     crons:
