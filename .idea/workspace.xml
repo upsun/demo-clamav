@@ -5,20 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="16c22634-f977-4a45-b8ba-a20164d257d7" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.environment" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.upsun/config.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/.upsun/config.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/etc/clamd.conf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/etc/freshclam.conf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/clam_install.sh" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/clam_populate.sh" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/clam_scan-clt.sh" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/clam_scan.sh" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/clam_start.sh" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/clam_update-db.sh" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/systemd.d/clamav.service" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/systemd_init.sh" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/systemd_install.sh" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,7 +57,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1745482233694</updated>
-      <workItem from="1745482234922" duration="11252000" />
+      <workItem from="1745482234922" duration="11963000" />
     </task>
     <servers />
   </component>

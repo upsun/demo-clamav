@@ -1,5 +1,5 @@
 applications:
-  in-app_clamav:
+  clamav:
     source:
       root: "/clamav"
     stack:
